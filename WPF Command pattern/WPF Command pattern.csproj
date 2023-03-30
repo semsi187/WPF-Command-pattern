@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>WPF_Command_pattern</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icons\window.png" />
+    <None Remove="View\terminal-window.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons\window.png" />
+    <Resource Include="View\terminal-window.png" />
+  </ItemGroup>
+
+</Project>

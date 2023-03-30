@@ -1,0 +1,51 @@
+﻿<Window x:Class="WPF_Command_pattern.View.NameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Command_pattern.View" xmlns:local1="clr-namespace:WPF_Command_pattern.ViewModels"
+        mc:Ignorable="d"
+        Title="NameView" Height="450" Width="800" Icon="/View/terminal-window.png">
+        
+    <Window.DataContext>
+        <local1:PersonViewModel></local1:PersonViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label FontWeight="Bold" Height="25" Grid.Row="1" Grid.Column="0" Content="First Name: " Margin="10,27,172,92"/>
+        <TextBox Grid.Row="1" Text="{Binding Person.FirstName}" Margin="100,27,23,84"/>
+
+        <Label FontWeight="Bold" Height="25" Grid.Row="1" Grid.Column="0" Content="Last Name: " Margin="10,65,172,54"/>
+        <TextBox Grid.Row="1" Text="{Binding Person.LastName}" Margin="100,65,23,46"/>
+
+        <Button BorderThickness="0" Foreground="White" Background="indigo" Grid.Row="1" Content="Save" Command="{Binding SaveCommand}" Margin="131,105,55,0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="14"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Border Background="indigo" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+
+        <ListView Grid.ColumnSpan="2" Margin="31,10,26,10" Grid.RowSpan="3" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="FirstName "></GridViewColumn>
+                    <GridViewColumn Header="LastName "></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
